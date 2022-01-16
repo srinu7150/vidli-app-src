@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./frontend
+    ports:
+      - 80:80
+
+  api:
+    build: ./backend
+    ports:
+      - 3001:3001
+    env_file:
+      - backend.env
+    command: ./docker-entrypoint.sh
+#   db:
+#     image: mongo:4.0-xenial
+#     ports:
+#       - 27017:27017
+#     volumes:
+#       - vidly:/data/db
+
+# volumes:
+#   vidly:
